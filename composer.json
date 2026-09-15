@@ -1,0 +1,31 @@
+{
+    "name": "la-souris/credit-check-sdk",
+    "description": "Provider-agnostic credit-check SDK for PHP: model applicants and their affordability profile as typed value objects, submit a check through any CreditChecker implementation (EDR/EDR, or your own) and read back a normalised decision.",
+    "type": "library",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.3",
+        "ext-json": "*",
+        "moneyphp/money": "^4.0",
+        "giggsey/libphonenumber-for-php-lite": "^9.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0 || ^13.0"
+    },
+    "suggest": {
+        "la-souris/credit-check-edr": "Required to run credit checks through the EDR (EDR Group) API.",
+        "la-souris/credit-check-laravel": "Laravel integration (service provider, driver manager, facade).",
+        "la-souris/credit-check-symfony": "Symfony integration (bundle, DI, provider registry)."
+    },
+    "autoload": {
+        "psr-4": {
+            "LaSouris\\CreditCheck\\Sdk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaSouris\\CreditCheck\\Sdk\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable"
+}
