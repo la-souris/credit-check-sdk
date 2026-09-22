@@ -9,7 +9,7 @@ use LaSouris\CreditCheck\Sdk\CreditCheck\Exception\ProviderNotFoundException;
 use LaSouris\CreditCheck\Sdk\Provider\Capability;
 use LaSouris\CreditCheck\Sdk\Provider\CreditChecker;
 use LaSouris\CreditCheck\Sdk\Provider\Provider;
-use LaSouris\CreditCheck\Sdk\Request\CreateCreditCheck;
+use LaSouris\CreditCheck\Sdk\Request\CreateCreditCheckRequest;
 use LaSouris\CreditCheck\Sdk\Response\ChangedChecksResponse;
 use LaSouris\CreditCheck\Sdk\Response\CheckStatus;
 use LaSouris\CreditCheck\Sdk\Response\CreateCreditCheckResponse;
@@ -32,12 +32,12 @@ final class FakeCreditChecker implements CreditChecker
 {
     use GuardsProviderReach;
 
-    /** @var array<string, CreateCreditCheck> */
+    /** @var array<string, CreateCreditCheckRequest> */
     private array $submitted = [];
 
     private int $counter = 0;
 
-    public function submitCheck(CreateCreditCheck $request): CreateCreditCheckResponse
+    public function submitCheck(CreateCreditCheckRequest $request): CreateCreditCheckResponse
     {
         $this->assertSupportedMoney($request->subject->amount);
         $this->assertSupportedCountry($request->primaryApplicant()->person->address->country);

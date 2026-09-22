@@ -6,7 +6,7 @@ namespace LaSouris\CreditCheck\Sdk\Tests\Functional\Request;
 
 use LaSouris\CreditCheck\Sdk\CreditCheck\Exception\InvalidArgumentException;
 use LaSouris\CreditCheck\Sdk\CreditCheck\SalesChannel;
-use LaSouris\CreditCheck\Sdk\Request\CreateCreditCheck;
+use LaSouris\CreditCheck\Sdk\Request\CreateCreditCheckRequest;
 use LaSouris\CreditCheck\Sdk\Tests\Fake\SampleData;
 use PHPUnit\Framework\TestCase;
 use Stringable;
@@ -29,7 +29,7 @@ final class CreditCheckRequestTest extends TestCase
             }
         };
 
-        $request = new CreateCreditCheck($orderId, SampleData::subject(), SalesChannel::Unknown, SampleData::applicant());
+        $request = new CreateCreditCheckRequest($orderId, SampleData::subject(), SalesChannel::Unknown, SampleData::applicant());
 
         self::assertSame('ORDER-VO-9', $request->reference);
     }
@@ -38,7 +38,7 @@ final class CreditCheckRequestTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
 
-        new CreateCreditCheck('ORDER-1', SampleData::subject());
+        new CreateCreditCheckRequest('ORDER-1', SampleData::subject());
     }
 
     public function testRejectsNonApplicantEntries(): void
@@ -48,6 +48,6 @@ final class CreditCheckRequestTest extends TestCase
         $this->expectException(\TypeError::class);
 
         /** @phpstan-ignore-next-line intentional bad input */
-        new CreateCreditCheck('ORDER-1', SampleData::subject(), SalesChannel::Unknown, 'not an applicant');
+        new CreateCreditCheckRequest('ORDER-1', SampleData::subject(), SalesChannel::Unknown, 'not an applicant');
     }
 }

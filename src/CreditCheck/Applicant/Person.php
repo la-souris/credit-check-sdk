@@ -17,10 +17,10 @@ final readonly class Person
         public string $initials,
         public string $firstName,
         public string $surname,
-        public Gender $gender,
-        public DateTimeImmutable $dateOfBirth,
-        public ContactInformation $contactInformation,
-        public Address $address,
+        public ?Gender $gender = null,
+        public ?DateTimeImmutable $dateOfBirth= null,
+        public ?ContactInformation $contactInformation= null,
+        public ?Address $address = null,
     ) {
         Assert::length($initials, 1, 20, 'initials');
         Assert::length($firstName, 1, 75, 'firstName');

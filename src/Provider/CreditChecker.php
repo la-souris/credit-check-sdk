@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace LaSouris\CreditCheck\Sdk\Provider;
 
 use DateTimeInterface;
-use LaSouris\CreditCheck\Sdk\Request\CreateCreditCheck;
+use LaSouris\CreditCheck\Sdk\Request\CreateCreditCheckRequest;
 use LaSouris\CreditCheck\Sdk\Response\ChangedChecksResponse;
 use LaSouris\CreditCheck\Sdk\Response\CreateCreditCheckResponse;
 use LaSouris\CreditCheck\Sdk\Response\GetCreditCheckResponse;
@@ -29,7 +29,7 @@ interface CreditChecker
     /**
      * Submit a credit check for one or more applicants; returns the created reference.
      */
-    public function submitCheck(CreateCreditCheck $request): CreateCreditCheckResponse;
+    public function submitCheck(CreateCreditCheckRequest $request): CreateCreditCheckResponse;
 
     /**
      * Fetch the current decision/result of a previously submitted check.

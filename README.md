@@ -130,7 +130,7 @@ mapper. See [`credit-check-edr`](../edr) for how that is done.
 use LaSouris\CreditCheck\Sdk\CreditCheck\Applicant;
 use LaSouris\CreditCheck\Sdk\CreditCheck\Applicant\{Address, ContactInformation, Gender, Person};
 use LaSouris\CreditCheck\Sdk\CreditCheck\{SalesChannel, Subject};
-use LaSouris\CreditCheck\Sdk\Request\CreateCreditCheck;
+use LaSouris\CreditCheck\Sdk\Request\CreateCreditCheckRequest;
 use libphonenumber\PhoneNumberUtil;
 use Money\Money;
 // Money::EUR(cents) — the MoneyFactory trait is composed onto Money
@@ -157,7 +157,7 @@ $person = new Person(
 
 $applicant = new Applicant(person: $person, partner: $partner);   // both required today, neither nullable
 
-$request = new CreateCreditCheck(
+$request = new CreateCreditCheckRequest(
     'ORDER-1001',                                // reference — positional; not constructor-promoted, but public and readable back as $request->reference
     new Subject(
         label: 'Tesla',

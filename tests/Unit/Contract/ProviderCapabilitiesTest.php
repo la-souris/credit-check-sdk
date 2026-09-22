@@ -109,7 +109,7 @@ final class ProviderCapabilitiesTest extends TestCase
 
 class UnannotatedChecker implements CreditChecker
 {
-    public function submitCheck(\LaSouris\CreditCheck\Sdk\Request\CreateCreditCheck $request): \LaSouris\CreditCheck\Sdk\Response\CreateCreditCheckResponse
+    public function submitCheck(\LaSouris\CreditCheck\Sdk\Request\CreateCreditCheckRequest $request): \LaSouris\CreditCheck\Sdk\Response\CreateCreditCheckResponse
     {
         throw new \LogicException('not used');
     }

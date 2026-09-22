@@ -12,7 +12,7 @@ use LaSouris\CreditCheck\Sdk\CreditCheck\Applicant\Gender;
 use LaSouris\CreditCheck\Sdk\CreditCheck\Applicant\Person;
 use LaSouris\CreditCheck\Sdk\CreditCheck\SalesChannel;
 use LaSouris\CreditCheck\Sdk\CreditCheck\Subject;
-use LaSouris\CreditCheck\Sdk\Request\CreateCreditCheck;
+use LaSouris\CreditCheck\Sdk\Request\CreateCreditCheckRequest;
 use libphonenumber\PhoneNumber;
 use libphonenumber\PhoneNumberUtil;
 use Money\Currencies\ISOCurrencies;
@@ -98,9 +98,9 @@ final class SampleData
         );
     }
 
-    public static function request(): CreateCreditCheck
+    public static function request(): CreateCreditCheckRequest
     {
-        return new CreateCreditCheck(
+        return new CreateCreditCheckRequest(
             'ORDER-123',
             self::subject(),
             SalesChannel::Internet,

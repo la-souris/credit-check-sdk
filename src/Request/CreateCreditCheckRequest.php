@@ -18,7 +18,7 @@ use Stringable;
  * It accepts any {@see Stringable}, so an application's own order-id value object can be
  * handed over as-is.
  */
-final readonly class CreateCreditCheck
+final readonly class CreateCreditCheckRequest
 {
     /** @var Applicant[] */
     public array $applicants;

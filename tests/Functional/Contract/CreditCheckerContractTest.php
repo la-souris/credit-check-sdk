@@ -13,7 +13,7 @@ use LaSouris\CreditCheck\Sdk\CreditCheck\Exception\ProviderNotFoundException;
 use LaSouris\CreditCheck\Sdk\CreditCheck\Exception\ProviderValidationException;
 use LaSouris\CreditCheck\Sdk\CreditCheck\SalesChannel;
 use LaSouris\CreditCheck\Sdk\CreditCheck\Subject;
-use LaSouris\CreditCheck\Sdk\Request\CreateCreditCheck;
+use LaSouris\CreditCheck\Sdk\Request\CreateCreditCheckRequest;
 use LaSouris\CreditCheck\Sdk\Response\CheckStatus;
 use LaSouris\CreditCheck\Sdk\Response\Decision;
 use LaSouris\CreditCheck\Sdk\Tests\Fake\FakeCreditChecker;
@@ -61,7 +61,7 @@ final class CreditCheckerContractTest extends TestCase
     {
         $this->expectException(ProviderValidationException::class);
 
-        $request = new CreateCreditCheck(
+        $request = new CreateCreditCheckRequest(
             'ORDER-GBP',
             new Subject(
                 label: 'Car',
@@ -92,7 +92,7 @@ final class CreditCheckerContractTest extends TestCase
             address: SampleData::address('DE'),
         );
 
-        $request = new CreateCreditCheck(
+        $request = new CreateCreditCheckRequest(
             'ORDER-DE',
             SampleData::subject(),
             SalesChannel::Internet,

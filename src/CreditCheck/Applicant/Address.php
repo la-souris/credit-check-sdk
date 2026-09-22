@@ -20,12 +20,15 @@ final readonly class Address
         public string $street,
         public string $postalCode,
         public string $city,
-        public int $occupants = 1,
+        public ?int $occupants = null,
     ) {
         Assert::length($houseNumber, 1, 20, 'houseNumber');
         Assert::length($street, 1, 255, 'street');
         Assert::length($postalCode, 1, 16, 'postalCode');
         Assert::length($city, 1, 255, 'city');
-        Assert::positive($occupants, 'occupants');
+
+        if ($occupants !== null) {
+            Assert::positive($occupants, 'occupants');
+        }
     }
 }

@@ -8,7 +8,7 @@ final readonly class Applicant
 {
     public function __construct(
         public Person $person,
-        public Person $partner,
+        public ?Person $partner = null,
     ) {
     }
 }
